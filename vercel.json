@@ -3,5 +3,11 @@
     "api/*.js": {
       "maxDuration": 10
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": ["/", "/api"],
+      "destination": "https://github.com/fxhxyz4/readme-quotes"
+    }
+  ]
 }
