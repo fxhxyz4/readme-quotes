@@ -25,7 +25,7 @@ const renderQuote = q => {
           <h3 style="font-size: 22px;">“${quote}”</h3>
           <br />
           <br />
-          <div align="right" style="font-size: 18px;">
+          <div style="font-size: 18px; text-align="right">
             <h3>— ${author}</h3>
           </div>
         </div>
