@@ -1,7 +1,30 @@
 import axios from 'axios';
 
 export default async function handler(req, res) {
-  const fetchUrl = 'https://dev-quotes.onrender.com/api/id?id=445';
+  let fetchUrl = 'https://dev-quotes.onrender.com/api/id?id=445';
+
+  const { api2, author } = req.params;
+
+  switch (api2) {
+    case 'id':
+      const quoteId = req.query.id || '1';
+      fetchUrl = `https://dev-quotes.onrender.com/api/id?id=${quoteId}`;
+      break;
+
+    case 'author':
+      if (!author) {
+        return res.status(400).json({ error: 'Missing author parameter' });
+      }
+
+      fetchUrl = `https://dev-quotes.onrender.com/api/author?author=${encodeURIComponent(
+        author
+      )}`;
+      break;
+
+    default:
+      fetchUrl = 'https://dev-quotes.onrender.com/api/random';
+      break;
+  }
 
   const quote = await fetchQuotes(fetchUrl);
 
