@@ -1,11 +1,16 @@
 import axios from 'axios';
 
-const INTERVAL = 10000;
+export default async function handler(req, res) {
+  let fetchUrl = 'https://dev-quotes.onrender.com/api/random';
 
-const fetchQuote = async () => {
-  const response = await axios.get(
-    'https://dev-quotes.onrender.com/api/random'
-  );
+  const quote = await fetchQuotes(fetchUrl);
+
+  res.setHeader('Content-Type', 'image/svg+xml');
+  res.send(renderQuote(quote));
+}
+
+const fetchQuotes = async url => {
+  const response = await axios.get(url);
   return response.data;
 };
 
@@ -26,15 +31,3 @@ const renderQuote = q => {
     </svg>
   `;
 };
-
-export default async function handler(req, res) {
-  const quote = await fetchQuote();
-
-  res.setHeader('Content-Type', 'image/svg+xml');
-  res.send(renderQuote(quote));
-}
-
-setInterval(async () => {
-  const updatedQuote = await fetchQuote();
-  renderQuote(updatedQuote);
-}, INTERVAL);
