@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export default async function handler(req, res) {
-  const fetchUrl = 'https://dev-quotes.onrender.com/api/random';
+  const fetchUrl = 'https://dev-quotes.onrender.com/api/id=id?445';
 
   const quote = await fetchQuotes(fetchUrl);
 
