@@ -11,21 +11,21 @@ export default async function handler(req, res) {
   res.status(200).end(widgetHTML);
 }
 
-const fetchQuotes = async (url) => {
+const fetchQuotes = async url => {
   const response = await axios.get(url);
   return response.data;
-}
+};
 
-const renderQuote = (q) => {
+const renderQuote = q => {
   const author = q.author;
   const quote = q.quote;
 
   return `
-    <h3>“${quote}”</h3>
+    <h3>&#8220;${quote}&#8221;</h3>
     <br />
     <br />
     <div align="right">
-      <h3>— ${author}</h3>
+      <h3>&#8210; ${author}</h3>
     </div>
   `;
-}
+};
