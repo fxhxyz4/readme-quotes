@@ -19,7 +19,7 @@ const renderQuote = q => {
   const quote = q.quote;
 
   return `
-    <svg width="800" height="250" fill="#000000" xmlns="http://www.w3.org/2000/svg">
+    <svg width="800" height="200" fill="#000000" xmlns="http://www.w3.org/2000/svg">
       <foreignObject  width="100%" height="100%">
         <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
           <h3 style="font-size: 22px;">“${quote}”</h3>
