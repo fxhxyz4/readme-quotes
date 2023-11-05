@@ -19,7 +19,7 @@ const renderQuote = q => {
   const quote = q.quote;
 
   return `
-    <svg width="800" height="200" fill="#000000" xmlns="http://www.w3.org/2000/svg">
+    <svg width="800" height="240" fill="#000000" xmlns="http://www.w3.org/2000/svg">
       <foreignObject  width="100%" height="100%">
         <div xmlns="http://www.w3.org/1999/xhtml" style="color: #cccccc; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
           <h3 style="font-size: 22px;">“Modern programming scares me in many respects. It confuses me to read a program which you must read top-down. It says “do something.” And you go find “something.” And you read it and it says, “do something else” and you go find something and it says, “do something else” and it goes back to the top maybe. And nothing gets done. It’s just relegating the problem to a deeper and deeper level.”</h3>
