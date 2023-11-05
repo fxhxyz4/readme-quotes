@@ -22,7 +22,7 @@ const renderQuote = q => {
     <svg width="800" height="200" fill="#000000" xmlns="http://www.w3.org/2000/svg">
       <foreignObject  width="100%" height="100%">
         <div xmlns="http://www.w3.org/1999/xhtml" style="color: #cccccc; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
-          <h3 style="font-size: 22px;">“We could, for instance, begin with cleaning up our language by no longer calling a bug a bug but by calling it an error. It is much more honest because it squarely puts the blame where it belongs, viz. with the programmer who made the error. The animistic metaphor of the bug that maliciously sneaked in while the programmer was not looking is intellectually dishonest as it disguises that the error is the programmer's own creation. The nice thing of this simple change of vocabulary is that it has such a profound effect: while, before, a program with only one bug used to be \"almost correct\", afterwards a program with an error is just \"wrong\".”</h3>
+          <h3 style="font-size: 22px;">“Modern programming scares me in many respects. It confuses me to read a program which you must read top-down. It says “do something.” And you go find “something.” And you read it and it says, “do something else” and you go find something and it says, “do something else” and it goes back to the top maybe. And nothing gets done. It’s just relegating the problem to a deeper and deeper level.”</h3>
           <div style="color: #ffffff; font-size: 18px; position: absolute; right: 0; bottom: 0;">
             <h3>— ${author}</h3>
           </div>
