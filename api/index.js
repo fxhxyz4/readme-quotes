@@ -1,29 +1,7 @@
 import axios from 'axios';
 
 export default async function handler(req, res) {
-  let fetchUrl = 'https://dev-quotes.onrender.com/api/id?id=445';
-
-  const api2 = req.query.api2;
-
-  switch (api2) {
-    case 'id':
-      const quoteId = req.query?.id || '337';
-      fetchUrl = `https://dev-quotes.onrender.com/api/id?id=${quoteId}`;
-      break;
-
-    case 'author':
-      if (!req.query.author) {
-        return res.status(400).json({ error: 'Missing author parameter' });
-      }
-      fetchUrl = `https://dev-quotes.onrender.com/api/author?author=${encodeURIComponent(
-        req.query.author
-      )}`;
-      break;
-
-    default:
-      fetchUrl = 'https://dev-quotes.onrender.com/api/random';
-      break;
-  }
+  let fetchUrl = 'https://dev-quotes.onrender.com/api/random';
 
   const quote = await fetchQuotes(fetchUrl);
 
