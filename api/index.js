@@ -12,11 +12,11 @@ export default async function handler(req, res) {
       break;
 
     case 'author':
-      if (!author) {
+      if (!req.query.author) {
         return res.status(400).json({ error: 'Missing author parameter' });
       }
       fetchUrl = `https://dev-quotes.onrender.com/api/author?author=${encodeURIComponent(
-        author
+        req.query.author
       )}`;
       break;
 
