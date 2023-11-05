@@ -10,8 +10,8 @@ export default async function handler(req, res) {
 
   const theme = req.query.theme;
 
-  if (theme === 'dark') {
-    cl.color1 = '';
+  if (theme == 'dark') {
+    cl.color1 = '#2b2b2b';
     cl.color2 = '#000000';
   }
 
