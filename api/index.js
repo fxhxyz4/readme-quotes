@@ -3,7 +3,9 @@ import axios from 'axios';
 export default async function handler(req, res) {
   let fetchUrl = 'https://dev-quotes.onrender.com/api/id?id=445';
 
-  switch (req.query.api2) {
+  const api2 = req.query.api2;
+
+  switch (api2) {
     case 'id':
       const quoteId = req.query?.id || '337';
       fetchUrl = `https://dev-quotes.onrender.com/api/id?id=${quoteId}`;
