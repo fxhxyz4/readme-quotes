@@ -5,10 +5,8 @@ export default async function handler(req, res) {
 
   const quote = await fetchQuotes(fetchUrl);
 
-  const widgetHTML = renderQuote(quote);
-
-  res.setHeader('Content-Type', 'text/html');
-  res.status(200).end(widgetHTML);
+  res.setHeader('Content-Type', 'image/svg+xml');
+  res.send(renderQuote(quote));
 }
 
 const fetchQuotes = async url => {
@@ -21,11 +19,15 @@ const renderQuote = q => {
   const quote = q.quote;
 
   return `
-    <h3>&#8220;${quote}&#8221;</h3>
-    <br />
-    <br />
-    <div align="right">
-      <h3>&#8210; ${author}</h3>
-    </div>
+    <svg width="300" height="300" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <foreignObject  width="100%" height="100%">
+        <h3>&#8220;${quote}&#8221;</h3>
+        <br />
+        <br />
+        <div align="right">
+          <h3>&#8210; ${author}</h3>
+        </div>
+      </foreignObject>
+    </svg>
   `;
 };
