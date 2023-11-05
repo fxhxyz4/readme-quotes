@@ -6,7 +6,7 @@
   },
   "redirects": [
     {
-      "source": ["/", "/api"],
+      "source": "/",
       "destination": "https://github.com/fxhxyz4/readme-quotes"
     }
   ]
