@@ -1,14 +1,20 @@
+import { VercelRequest, VercelResponse } from '@vercel/node';
 import axios from 'axios';
 
-export default async function handler(req, res) {
+interface ColorScheme {
+  color1: string;
+  color2: string;
+}
+
+async function handler(req: VercelRequest, res: VercelResponse) {
   const fetchUrl = 'https://dev-quotes.onrender.com/api/random';
 
-  let cl = {
+  let cl: ColorScheme = {
     color1: '#cccccc',
     color2: '#ffffff',
   };
 
-  const theme = req.query.theme;
+  const theme = req.query.theme as string;
 
   if (theme === 'white') {
     cl.color1 = '#2b2b2b';
@@ -21,12 +27,12 @@ export default async function handler(req, res) {
   res.send(renderQuote(quote, cl));
 }
 
-const fetchQuotes = async url => {
+const fetchQuotes = async (url: string) => {
   const response = await axios.get(url);
   return response.data;
 };
 
-const renderQuote = (q, cl) => {
+const renderQuote = (q: { author: string; quote: string }, cl: ColorScheme) => {
   const author = q.author;
   const quote = q.quote;
 
@@ -43,3 +49,5 @@ const renderQuote = (q, cl) => {
     </svg>
   `;
 };
+
+export default handler;
