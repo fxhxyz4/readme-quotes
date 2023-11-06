@@ -22,19 +22,19 @@ const renderQuote = q => {
     <svg width="800" height="200" fill="none" xmlns="http://www.w3.org/2000/svg">
       <style>
         @media (prefers-color-scheme: dark) {
-          .div: {
+          .div {
             color: #cccccc;
           }
-          .child-div: {
+          .child-div {
             color: #ffffff;
           }
         }
 
         @media (prefers-color-scheme: light) {
-          .div: {
+          .div {
             color: #2b2b2b;
           }
-          .child-div: {
+          .child-div {
             color: #000000;
           }
         }
