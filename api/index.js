@@ -18,7 +18,7 @@ export default async function handler(req, res) {
   const quote = await fetchQuotes(fetchUrl);
 
   res.setHeader('Content-Type', 'image/svg+xml');
-  res.send(renderQuote(req.query));
+  res.send(renderQuote(quote));
 }
 
 const fetchQuotes = async url => {
