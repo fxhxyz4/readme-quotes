@@ -19,7 +19,7 @@ const renderQuote = q => {
   const quote = q.quote;
 
   return `
-    <svg width="800" height="230" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="800" height="205" fill="none" xmlns="http://www.w3.org/2000/svg">
       <style>
         @media (prefers-color-scheme: dark) {
           .div {
