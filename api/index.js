@@ -1,10 +1,7 @@
-import { VercelRequest, VercelResponse } from '@vercel/node';
 import axios from 'axios';
 
-async function handler(req: VercelRequest, res: VercelResponse) {
+async function handler(req, res) {
   const fetchUrl = 'https://dev-quotes.onrender.com/api/random';
-
-  const theme = req.query.theme as string;
 
   const quote = await fetchQuotes(fetchUrl);
 
@@ -12,12 +9,12 @@ async function handler(req: VercelRequest, res: VercelResponse) {
   res.send(renderQuote(quote));
 }
 
-const fetchQuotes = async (url: string) => {
+const fetchQuotes = async url => {
   const response = await axios.get(url);
   return response.data;
 };
 
-const renderQuote = (q: { author: string; quote: string }) => {
+const renderQuote = q => {
   const author = q.author;
   const quote = q.quote;
 
