@@ -1,16 +1,16 @@
 import axios from 'axios';
 
-let cl = {
-  color1: '#cccccc',
-  color2: '#ffffff',
-};
-
 export default async function handler(req, res) {
-  let fetchUrl = 'https://dev-quotes.onrender.com/api/random';
+  const fetchUrl = 'https://dev-quotes.onrender.com/api/random';
+
+  let cl = {
+    color1: '#cccccc',
+    color2: '#ffffff',
+  };
 
   const theme = req.query.theme;
 
-  if (theme == 'white') {
+  if (theme === 'white') {
     cl.color1 = '#2b2b2b';
     cl.color2 = '#000000';
   }
@@ -18,7 +18,7 @@ export default async function handler(req, res) {
   const quote = await fetchQuotes(fetchUrl);
 
   res.setHeader('Content-Type', 'image/svg+xml');
-  res.send(renderQuote(quote));
+  res.send(renderQuote(quote, cl));
 }
 
 const fetchQuotes = async url => {
@@ -26,7 +26,7 @@ const fetchQuotes = async url => {
   return response.data;
 };
 
-const renderQuote = q => {
+const renderQuote = (q, cl) => {
   const author = q.author;
   const quote = q.quote;
 
