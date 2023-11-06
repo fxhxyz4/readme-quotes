@@ -14,12 +14,12 @@
 ```
 
 ## dev-quote api server
-  - ### [original api](https://github.com/mudroljub/programming-quotes-api)
-  - ### [my copy](https://dev-quotes.onrender.com/api)
-  - ### [source code](https://gitlab.com/fxhxyz/dev-quotes)
+  - #### [original api](https://github.com/mudroljub/programming-quotes-api)
+  - #### [my copy](https://dev-quotes.onrender.com/api)
+  - #### [source code](https://gitlab.com/fxhxyz/dev-quotes)
 
 ## if you have questions?
-  - ### [issues](https://github.com/fxhxyz4/readme-quotes/issues/new)
-  - ### [discussion](https://github.com/fxhxyz4/readme-quotes/discussions/new/choose)
+  - #### [issues](https://github.com/fxhxyz4/readme-quotes/issues/new)
+  - #### [discussion](https://github.com/fxhxyz4/readme-quotes/discussions/new/choose)
 
 ## License: [WTFPL](./license.md).
