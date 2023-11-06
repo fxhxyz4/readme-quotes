@@ -11,7 +11,7 @@
     "github readme quotes"
   ],
   "type": "module",
-  "main": "./api/index.js",
+  "main": "./api/index.ts",
   "author": {
     "name": "fxhxyz4",
     "email": "fxhxyz@proton.me",
