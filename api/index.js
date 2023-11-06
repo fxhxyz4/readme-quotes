@@ -1,4 +1,3 @@
-import { VercelRequest, VercelResponse } from '@vercel/node';
 import axios from 'axios';
 
 let cl = {
@@ -6,10 +5,7 @@ let cl = {
   color2: '#ffffff',
 };
 
-export default async function handler(
-  req = VercelRequest,
-  res = VercelResponse
-) {
+export default async function handler(req, res) {
   let fetchUrl = 'https://dev-quotes.onrender.com/api/random';
 
   const theme = req.query.theme;
@@ -22,7 +18,7 @@ export default async function handler(
   const quote = await fetchQuotes(fetchUrl);
 
   res.setHeader('Content-Type', 'image/svg+xml');
-  res.send(renderQuote(req.query));
+  res.send(renderQuote(theme));
 }
 
 const fetchQuotes = async url => {
