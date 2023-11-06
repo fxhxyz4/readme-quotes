@@ -1,6 +1,6 @@
 {
   "functions": {
-    "api/*.ts": {
+    "dist/*.js": {
       "maxDuration": 10
     }
   },
