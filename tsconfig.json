@@ -6,6 +6,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "rootDir": "./api/index.ts"
+    "rootDir": "./api",
+    "outDir": "./dist"
   }
 }
