@@ -31,11 +31,11 @@ const renderQuote = q => {
   const quote = q.quote;
 
   return `
-    <svg width="800" height="200" fill="#000000" xmlns="http://www.w3.org/2000/svg">
+    <svg width="800" height="200" fill="none" xmlns="http://www.w3.org/2000/svg">
       <foreignObject  width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml" style="color: #2b2b2b; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+        <div xmlns="http://www.w3.org/1999/xhtml" style="color: ${cl.color1}; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
           <h3 style="font-size: 22px;">“${quote}”</h3>
-          <div style="color: #000000; font-size: 18px; position: absolute; right: 0; bottom: 0;">
+          <div style="color: ${cl.color2}; font-size: 18px; position: absolute; right: 0; bottom: 0;">
             <h3>— ${author}</h3>
           </div>
         </div>
