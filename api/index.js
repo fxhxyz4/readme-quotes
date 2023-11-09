@@ -1,7 +1,25 @@
 import axios from 'axios';
 
 async function handler(req, res) {
-  const fetchUrl = 'https://dev-quotes.onrender.com/api/random';
+  let fetchUrl = '';
+
+  const method = req.query.met;
+  const id = req.query.id;
+  const author = encodeURIComponent(req.query.author);
+
+  switch (method) {
+    case 'id':
+      fetchUrl = `https://dev-quotes.onrender.com/api/id?id=${id}`;
+      break;
+
+    case 'author':
+      fetchUrl = `https://dev-quotes.onrender.com/api/author?author=${author}`;
+      break;
+
+    default:
+      fetchUrl = `https://dev-quotes.onrender.com/api/random`;
+      break;
+  }
 
   const quote = await fetchQuotes(fetchUrl);
 
