@@ -1,7 +1,6 @@
 {
   "functions": {
     "api/*.ts": {
-      "runtime": "nodejs14.x",
       "maxDuration": 10
     }
   },
