@@ -2,7 +2,6 @@
   "functions": {
     "api/*.ts": {
       "runtime": "js",
-      "entry": "dist/api/index.js",
       "maxDuration": 10
     }
   },
