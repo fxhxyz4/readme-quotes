@@ -14,7 +14,7 @@ interface Theme {
 }
 
 const themes: Theme[] = [
-  { name: 'telegram', bg: '#0088cc', text: '#1c1c1c', author: '#000000' },
+  { name: 'telegram', bg: '#1c1c1c', text: '#00ffd0ff', author: '#ffffffff' },
   { name: 'github', bg: '#0d1117', text: '#c9d1d9', author: '#58a6ff' },
   { name: 'dracula', bg: '#282a36', text: '#f8f8f2', author: '#ff79c6' },
   { name: 'monokai', bg: '#272822', text: '#f8f8f2', author: '#a6e22e' },
