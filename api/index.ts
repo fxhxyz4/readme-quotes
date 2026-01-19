@@ -2,6 +2,7 @@ import { VercelRequest, VercelResponse } from '@vercel/node';
 import axios from 'axios';
 
 interface Quote {
+  id?: string;
   author: string;
   quote: string;
 }
@@ -26,21 +27,42 @@ const themes: Theme[] = [
   { name: 'cyberpunk', bg: '#0a0e27', text: '#00ff9f', author: '#ff2e97' },
 ];
 
+const BASE_URL = 'https://dev-quotes.onrender.com/api';
+
 async function handler(req: VercelRequest, res: VercelResponse) {
-  const fetchUrl = 'https://dev-quotes.onrender.com/api/random';
-  const quote = await fetchQuotes(fetchUrl);
+  try {
+    const themeName = (req.query.theme as string) || 'telegram';
+    const author = req.query.author as string;
+    const id = req.query.id as string;
 
-  const themeName = (req.query.theme as string) || 'telegram';
-  const theme = themes.find(t => t.name === themeName) || themes[0];
+    let fetchUrl = `${BASE_URL}/random`;
 
-  res.setHeader('Content-Type', 'image/svg+xml');
-  res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
-  res.send(renderQuote(quote, theme));
+    if (id) {
+      fetchUrl = `${BASE_URL}/id?id=${encodeURIComponent(id)}`;
+    } else if (author) {
+      fetchUrl = `${BASE_URL}/author?author=${encodeURIComponent(author)}`;
+    }
+
+    const data = await fetchQuotes(fetchUrl);
+    const quote: Quote = Array.isArray(data) ? getRandomFromArray(data) : data;
+
+    const theme = themes.find(t => t.name === themeName) || themes[0];
+
+    res.setHeader('Content-Type', 'image/svg+xml');
+    res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
+    res.send(renderQuote(quote, theme));
+  } catch (error) {
+    res.status(500).send(renderError(error));
+  }
 }
 
-const fetchQuotes = async (url: string): Promise<Quote> => {
+const fetchQuotes = async (url: string): Promise<Quote | Quote[]> => {
   const response = await axios.get(url);
   return response.data;
+};
+
+const getRandomFromArray = (quotes: Quote[]): Quote => {
+  return quotes[Math.floor(Math.random() * quotes.length)];
 };
 
 const calculateHeight = (quote: string, author: string): number => {
@@ -51,18 +73,17 @@ const calculateHeight = (quote: string, author: string): number => {
 
   if (quoteLength > 100) height += 40;
   if (quoteLength > 150) height += 40;
-
   if (quoteLength > 200) height += 40;
   if (quoteLength > 250) height += 40;
 
   if (authorLength > 20) height += 20;
+
   return Math.max(height, 180);
 };
 
 const renderQuote = (q: Quote, theme: Theme): string => {
   const author = q.author;
   const quote = q.quote;
-
   const height = calculateHeight(quote, author);
 
   return `
@@ -108,6 +129,32 @@ const renderQuote = (q: Quote, theme: Theme): string => {
               font-style: italic;
             ">— ${author}</p>
           </div>
+        </div>
+      </foreignObject>
+    </svg>
+  `;
+};
+
+const renderError = (error: any): string => {
+  return `
+    <svg width="800" height="200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="800" height="200" fill="#ff4444" rx="8"/>
+      <foreignObject width="100%" height="100%">
+        <div xmlns="http://www.w3.org/1999/xhtml" style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 20px;
+          box-sizing: border-box;
+          height: 100%;
+          font-family: monospace;
+        ">
+          <p style="
+            font-size: 18px;
+            color: #ffffff;
+            margin: 0;
+            text-align: center;
+          ">Error: ${error.message || 'Failed to fetch quote'}</p>
         </div>
       </foreignObject>
     </svg>
