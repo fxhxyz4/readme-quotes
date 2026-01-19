@@ -13,6 +13,22 @@
 ![Random Quote](https://readme-quotes.vercel.app/api/index)
 ```
 
+## For add your color theme:
+  - ### add theme in json format:
+```
+{
+  "theme": {
+    name: "theme name",
+    bgText: "#hex color",
+    fgText: "#hex color",
+    authorText: "#hex color"
+  }
+}
+```
+  - ### type this to [issues](https://github.com/fxhxyz4/readme-quotes/issues?q=state%3Aopen%20label%3Atheme) with theme label!
+
+#
+
 ## dev-quote api server
   - #### [original api](https://github.com/mudroljub/programming-quotes-api)
   - #### [my copy](https://dev-quotes.onrender.com/api)
