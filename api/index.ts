@@ -34,6 +34,7 @@ async function handler(req: VercelRequest, res: VercelResponse) {
   const theme = themes.find(t => t.name === themeName) || themes[0];
 
   res.setHeader('Content-Type', 'image/svg+xml');
+  res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
   res.send(renderQuote(quote, theme));
 }
 
@@ -42,18 +43,70 @@ const fetchQuotes = async (url: string): Promise<Quote> => {
   return response.data;
 };
 
+const calculateHeight = (quote: string, author: string): number => {
+  const quoteLength = quote.length;
+  const authorLength = author.length;
+
+  let height = 140;
+
+  if (quoteLength > 100) height += 40;
+  if (quoteLength > 150) height += 40;
+
+  if (quoteLength > 200) height += 40;
+  if (quoteLength > 250) height += 40;
+
+  if (authorLength > 20) height += 20;
+  return Math.max(height, 180);
+};
+
 const renderQuote = (q: Quote, theme: Theme): string => {
   const author = q.author;
   const quote = q.quote;
 
+  const height = calculateHeight(quote, author);
+
   return `
-    <svg width="800" height="205" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="800" height="205" fill="${theme.bg}" rx="8"/>
+    <svg width="800" height="${height}" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="800" height="${height}" fill="${theme.bg}" rx="8"/>
       <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; box-sizing: border-box; height: 100%;">
-          <h3 style="font-size: 22px; color: ${theme.text}; margin: 0; max-width: 90%;">"${quote}"</h3>
-          <div style="font-size: 18px; position: absolute; right: 20px; bottom: 20px; color: ${theme.author};">
-            <h3 style="margin: 0;">— ${author}</h3>
+        <div xmlns="http://www.w3.org/1999/xhtml" style="
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          padding: 30px 40px;
+          box-sizing: border-box;
+          height: 100%;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        ">
+          <div style="
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-bottom: 20px;
+          ">
+            <p style="
+              font-size: 20px;
+              color: ${theme.text};
+              margin: 0;
+              line-height: 1.6;
+              font-weight: 400;
+              max-width: 90%;
+              word-wrap: break-word;
+            ">"${quote}"</p>
+          </div>
+          <div style="
+            text-align: right;
+            margin-top: auto;
+          ">
+            <p style="
+              font-size: 16px;
+              color: ${theme.author};
+              margin: 0;
+              font-weight: 500;
+              font-style: italic;
+            ">— ${author}</p>
           </div>
         </div>
       </foreignObject>
