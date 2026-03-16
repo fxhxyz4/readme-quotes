@@ -29,7 +29,7 @@ const themes: Theme[] = [
 
 const BASE_URL = 'https://dev-quotes.onrender.com/api';
 
-async function handler(req: VercelRequest, res: VercelResponse) {
+const handler = async (req: VercelRequest, res: VercelResponse) => {
   try {
     const themeName = (req.query.theme as string) || 'telegram';
     const author = req.query.author as string;
@@ -54,7 +54,7 @@ async function handler(req: VercelRequest, res: VercelResponse) {
   } catch (error) {
     res.status(500).send(renderError(error));
   }
-}
+};
 
 const fetchQuotes = async (url: string): Promise<Quote | Quote[]> => {
   const response = await axios.get(url);
