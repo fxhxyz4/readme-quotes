@@ -9,12 +9,30 @@
 </div>
 
 ## Usage:
+
 ```
 ![Random Quote](https://readme-quotes.vercel.app/api/index)
 ```
 
+## 🎨 Themes
+
+| Theme       | Preview                                                 | Background | Text      | Author    |
+| ----------- | ------------------------------------------------------- | ---------- | --------- | --------- |
+| `telegram`  | ![](https://placehold.co/60x20/1c1c1c/00ffe5ff?text=Aa) | `#1c1c1c`  | `#00ffe5` | `#ffffff` |
+| `github`    | ![](https://placehold.co/60x20/0d1117/c9d1d9?text=Aa)   | `#0d1117`  | `#c9d1d9` | `#58a6ff` |
+| `dracula`   | ![](https://placehold.co/60x20/282a36/f8f8f2?text=Aa)   | `#282a36`  | `#f8f8f2` | `#ff79c6` |
+| `monokai`   | ![](https://placehold.co/60x20/272822/f8f8f2?text=Aa)   | `#272822`  | `#f8f8f2` | `#a6e22e` |
+| `nord`      | ![](https://placehold.co/60x20/2e3440/d8dee9?text=Aa)   | `#2e3440`  | `#d8dee9` | `#88c0d0` |
+| `ocean`     | ![](https://placehold.co/60x20/1a1f3a/e0e7ff?text=Aa)   | `#1a1f3a`  | `#e0e7ff` | `#60a5fa` |
+| `sunset`    | ![](https://placehold.co/60x20/1a0b2e/f4e4ba?text=Aa)   | `#1a0b2e`  | `#f4e4ba` | `#ff6f61` |
+| `forest`    | ![](https://placehold.co/60x20/1b2e1f/e8f5e9?text=Aa)   | `#1b2e1f`  | `#e8f5e9` | `#66bb6a` |
+| `rose`      | ![](https://placehold.co/60x20/2d1b2e/fce4ec?text=Aa)   | `#2d1b2e`  | `#fce4ec` | `#f48fb1` |
+| `cyberpunk` | ![](https://placehold.co/60x20/0a0e27/00ff9f?text=Aa)   | `#0a0e27`  | `#00ff9f` | `#ff2e97` |
+
 ## For add your color theme:
-  - ### add theme in json format:
+
+- ### add theme in json format:
+
 ```
 {
   "theme": {
@@ -25,17 +43,20 @@
   }
 }
 ```
-  - ### type this to [issues](https://github.com/fxhxyz4/readme-quotes/issues?q=state%3Aopen%20label%3Atheme) with theme label!
+
+- ### type this to [issues](https://github.com/fxhxyz4/readme-quotes/issues?q=state%3Aopen%20label%3Atheme) with theme label!
 
 #
 
 ## dev-quote api server
-  - #### [original api](https://github.com/mudroljub/programming-quotes-api)
-  - #### [my copy](https://dev-quotes.onrender.com/api)
-  - #### [source code](https://gitlab.com/fxhxyz8/dev-quotes)
+
+- #### [original api](https://github.com/mudroljub/programming-quotes-api)
+- #### [my copy](https://dev-quotes.onrender.com/api)
+- #### [source code](https://gitlab.com/fxhxyz8/dev-quotes)
 
 ## if you have questions?
-  - #### [issues](https://github.com/fxhxyz4/readme-quotes/issues/new)
-  - #### [discussion](https://github.com/fxhxyz4/readme-quotes/discussions/new/choose)
+
+- #### [issues](https://github.com/fxhxyz4/readme-quotes/issues/new)
+- #### [discussion](https://github.com/fxhxyz4/readme-quotes/discussions/new/choose)
 
 ## License: [WTFPL](./license.md).
