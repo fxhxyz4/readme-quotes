@@ -829,7 +829,7 @@
     picomatch "^4.0.2"
     resolve-from "^5.0.0"
 
-"@vercel/node@5.6.18", "@vercel/node@^5.6.15":
+"@vercel/node@5.6.18", "@vercel/node@^5.6.18":
   version "5.6.18"
   resolved "https://registry.yarnpkg.com/@vercel/node/-/node-5.6.18.tgz#ccbb3a4fd07655397b7fe25c5fe1218ba5734e58"
   integrity sha512-Hwu7S7JfKFOVVlvQEMMEbsCX4tXLprBemU9q15uN8iKJmuUtZpOZWqgcrxP9naa3cqfk0ZtsT+yik4Hi2Q1Z8Q==
