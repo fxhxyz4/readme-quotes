@@ -2,22 +2,32 @@
   <img src="./assets/dev.png" alt="..." width="240" height="80" />
   <br />
   <br />
-  <h3>developer quotes to your github readme</h3>
-  <h3>view
-    <a href="./demo.md" target="_blank">demo</a>
-  </h3>
+  <p>developer quotes to your github readme</p>
+  <a href="./demo.md">demo</a> •
+  <a href="https://github.com/fxhxyz4/readme-quotes/issues/new">report bug</a> •
+  <a href="https://github.com/fxhxyz4/readme-quotes/discussions/new/choose">discussion</a>
 </div>
 
-## Usage:
+---
 
-```
+## Usage
+
+```md
 ![Random Quote](https://readme-quotes.vercel.app/api/index)
 ```
 
+with theme:
+
+```md
+![Random Quote](https://readme-quotes.vercel.app/api/index?theme=dracula)
+```
+
+---
+
 ## 🎨 Themes
 
-| Theme       | Preview                                                 | Background | Text      | Author    |
-| ----------- | ------------------------------------------------------- | ---------- | --------- | --------- |
+| Theme       | Preview                                                  | Background | Text      | Author    |
+| ----------- | -------------------------------------------------------- | ---------- | --------- | --------- |
 | `telegram`  | ![](https://placehold.co/60x20/1c1c1c/00ffe5ff?text=Aa) | `#1c1c1c`  | `#00ffe5` | `#ffffff` |
 | `github`    | ![](https://placehold.co/60x20/0d1117/c9d1d9?text=Aa)   | `#0d1117`  | `#c9d1d9` | `#58a6ff` |
 | `dracula`   | ![](https://placehold.co/60x20/282a36/f8f8f2?text=Aa)   | `#282a36`  | `#f8f8f2` | `#ff79c6` |
@@ -29,34 +39,33 @@
 | `rose`      | ![](https://placehold.co/60x20/2d1b2e/fce4ec?text=Aa)   | `#2d1b2e`  | `#fce4ec` | `#f48fb1` |
 | `cyberpunk` | ![](https://placehold.co/60x20/0a0e27/00ff9f?text=Aa)   | `#0a0e27`  | `#00ff9f` | `#ff2e97` |
 
-## For add your color theme:
+---
 
-- ### add theme in json format:
+## ➕ Add your theme
 
-```
+open an [issue](https://github.com/fxhxyz4/readme-quotes/issues?q=state%3Aopen%20label%3Atheme) with the `theme` label and paste this:
+
+```json
 {
-  "theme": {
-    name: "theme name",
-    bgText: "#hex color",
-    fgText: "#hex color",
-    authorText: "#hex color"
-  }
+  "name": "theme name",
+  "bg": "#hex",
+  "text": "#hex",
+  "author": "#hex"
 }
 ```
 
-- ### type this to [issues](https://github.com/fxhxyz4/readme-quotes/issues?q=state%3Aopen%20label%3Atheme) with theme label!
+---
 
-#
+## 🔗 API
 
-## dev-quote api server
+| | Link |
+|---|---|
+| original | [programming-quotes-api](https://github.com/mudroljub/programming-quotes-api) |
+| mirror | [dev-quotes.onrender.com/api](https://dev-quotes.onrender.com/api) |
+| source | [gitlab.com/fxhxyz8/dev-quotes](https://gitlab.com/fxhxyz8/dev-quotes) |
 
-- #### [original api](https://github.com/mudroljub/programming-quotes-api)
-- #### [my copy](https://dev-quotes.onrender.com/api)
-- #### [source code](https://gitlab.com/fxhxyz8/dev-quotes)
+---
 
-## if you have questions?
+## License
 
-- #### [issues](https://github.com/fxhxyz4/readme-quotes/issues/new)
-- #### [discussion](https://github.com/fxhxyz4/readme-quotes/discussions/new/choose)
-
-## License: [WTFPL](./license.md).
+[WTFPL](./license.md)
