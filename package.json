@@ -39,7 +39,7 @@
   "devDependencies": {
     "@vercel/node": "^5.9.5",
     "typescript": "^5.9.3",
-    "vercel": "^53.3.2"
+    "vercel": "^58.9.0"
   },
   "engine": ">=22",
   "engineStrict": false
