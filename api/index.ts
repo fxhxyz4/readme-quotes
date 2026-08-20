@@ -1,9 +1,9 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
 
-import { fetchQuote } from '../services/quote.service';
-import { renderError } from '../renderers/error.renderer';
-import { renderQuote } from '../renderers/quote.renderer';
-import { getTheme } from '../utils/theme';
+import { fetchQuote } from '../src/services/quote.service';
+import { renderError } from '../src/renderers/error.renderer';
+import { renderQuote } from '../src/renderers/quote.renderer';
+import { getTheme } from '../src/utils/theme';
 
 const handler = async (
   req: VercelRequest,

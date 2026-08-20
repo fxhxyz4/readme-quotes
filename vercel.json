@@ -1,13 +1,8 @@
 {
+  "version": 2,
   "functions": {
     "api/*.ts": {
-      "maxDuration": 10
+      "runtime": "@vercel/node"
     }
-  },
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "https://github.com/fxhxyz4/readme-quotes"
-    }
-  ]
+  }
 }
