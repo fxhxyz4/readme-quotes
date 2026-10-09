@@ -29,17 +29,15 @@
   ],
   "license": "WTFPL",
   "scripts": {
-    "tsc": "tsc",
-    "start": "node dist/api/index.js"
+    "typecheck": "tsc"
   },
   "dependencies": {
-    "axios": "^1.19.0"
+    "axios": "^1.20.0"
   },
   "devDependencies": {
-    "@vercel/node": "^5.9.5",
-    "typescript": "^5.9.3",
-    "vercel": "^58.9.0"
+    "typescript": "^5.9.3"
   },
-  "engine": ">=22",
-  "engineStrict": false
+  "engines": {
+    "node": "24.x"
+  }
 }

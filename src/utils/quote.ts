@@ -1,17 +1,24 @@
-export const calculateQuoteHeight = (
-  quote: string,
-  author: string,
-): number => {
-  let height = 140;
+export const MAX_QUOTE_LENGTH = 500;
 
-  if (quote.length > 100) height += 40;
-  if (quote.length > 150) height += 40;
-  if (quote.length > 200) height += 40;
-  if (quote.length > 250) height += 40;
+const CHARS_PER_LINE = 58;
+const LINE_HEIGHT = 32;
+const BASE_HEIGHT = 124;
+const MIN_HEIGHT = 180;
 
-  if (author.length > 20) {
-    height += 20;
+export const truncateQuote = (quote: string): string => {
+  if (quote.length <= MAX_QUOTE_LENGTH) {
+    return quote;
   }
 
-  return Math.max(height, 180);
+  return `${quote.slice(0, MAX_QUOTE_LENGTH).trimEnd()}…`;
+};
+
+export const calculateQuoteHeight = (quote: string, author: string): number => {
+  const lines = Math.max(1, Math.ceil(quote.length / CHARS_PER_LINE));
+  const authorLines = Math.max(1, Math.ceil(author.length / 70));
+
+  return Math.max(
+    MIN_HEIGHT,
+    BASE_HEIGHT + lines * LINE_HEIGHT + (authorLines - 1) * 24
+  );
 };

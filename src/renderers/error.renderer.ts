@@ -1,8 +1,8 @@
+import { escapeXml } from '../utils/escape';
+
 export const renderError = (error: unknown): string => {
   const message =
-    error instanceof Error
-      ? error.message
-      : 'Failed to fetch quote';
+    error instanceof Error ? error.message : 'Failed to fetch quote';
 
   return `
     <svg
@@ -39,7 +39,7 @@ export const renderError = (error: unknown): string => {
               text-align: center;
             "
           >
-            Error: ${message}
+            Error: ${escapeXml(message)}
           </p>
         </div>
       </foreignObject>

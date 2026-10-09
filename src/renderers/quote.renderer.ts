@@ -1,12 +1,11 @@
 import { Quote } from '../models/quote';
 import { Theme } from '../models/theme';
-import { calculateQuoteHeight } from '../utils/quote';
+import { escapeXml } from '../utils/escape';
+import { calculateQuoteHeight, truncateQuote } from '../utils/quote';
 
-export const renderQuote = (
-  quoteData: Quote,
-  theme: Theme,
-): string => {
-  const { author, quote } = quoteData;
+export const renderQuote = (quoteData: Quote, theme: Theme): string => {
+  const quote = truncateQuote(quoteData.quote);
+  const author = quoteData.author;
   const height = calculateQuoteHeight(quote, author);
 
   return `
@@ -65,7 +64,7 @@ export const renderQuote = (
                 word-wrap: break-word;
               "
             >
-              "${quote}"
+              "${escapeXml(quote)}"
             </p>
           </div>
 
@@ -84,7 +83,7 @@ export const renderQuote = (
                 font-style: italic;
               "
             >
-              — ${author}
+              — ${escapeXml(author)}
             </p>
           </div>
         </div>

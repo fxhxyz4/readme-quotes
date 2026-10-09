@@ -1,6 +1,7 @@
 node_modules/
+dist/
 pnpm-lock.yaml
-.DS_store
+package-lock.json
+.DS_Store
 .env
 .vercel
-yarn.lock
